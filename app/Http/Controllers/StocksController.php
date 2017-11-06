@@ -21,7 +21,9 @@ class StocksController extends Controller
      */
     public function index()
     {
-        //
+        $stocks = Stock::all();
+        return view('stocks.index')
+            ->with('stocks',$stocks);
     }
 
     /**
