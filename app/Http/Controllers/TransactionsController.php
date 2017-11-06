@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Transaction;
 use Illuminate\Http\Request;
 
 class TransactionsController extends Controller
@@ -85,6 +86,7 @@ class TransactionsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Transaction::destroy($id);
+        return back();
     }
 }
