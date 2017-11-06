@@ -24,13 +24,7 @@
     <div class="row">
         @foreach($users as $user)
             <div class="col-md-4">
-                <div class="panel panel-default">
-                    {{--<div class="panel-heading">Accounts</div>--}}
-
-                    <div class="panel-body">
-                        <a href="/users/{{$user->id}}">{{$user->name}}</a>
-                    </div>
-                </div>
+                <a href="/users/{{$user->id}}" class="btn btn-{{$user->color}} btn-lg btn-block" role="button">{{$user->name}}</a>
             </div>
         @endforeach
     </div>
