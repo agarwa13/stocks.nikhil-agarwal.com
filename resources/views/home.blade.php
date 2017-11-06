@@ -1,28 +1,41 @@
 @extends('layouts.app')
 
 @section('content')
+{{--<div class="container">--}}
+    {{--<div class="row">--}}
+        {{--<div class="col-md-8 col-md-offset-2">--}}
+            {{--<div class="panel panel-default">--}}
+                {{--<div class="panel-heading">Accounts</div>--}}
+
+                {{--<div class="panel-body">--}}
+                    {{--@if (session('status'))--}}
+                        {{--<div class="alert alert-success">--}}
+                            {{--{{ session('status') }}--}}
+                        {{--</div>--}}
+                    {{--@endif--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+{{--</div>--}}
+
+
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Accounts</div>
+        @foreach($users as $user)
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    {{--<div class="panel-heading">Accounts</div>--}}
 
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    @foreach($users as $user)
-                        <ul>
-                            <li><a href="/users/{{$user->id}}">{{$user->name}}</a></li>
-                        </ul>
-                    @endforeach
-                    
+                    <div class="panel-body">
+                        <a href="/users/{{$user->id}}">{{$user->name}}</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endforeach
     </div>
 </div>
+
+
+
 @endsection
