@@ -20,7 +20,7 @@
                                 <li>{{$stock->name}}</li>
                             </ul>
                         @endforeach
-                        
+
                     </div>
                 </div>
             </div>

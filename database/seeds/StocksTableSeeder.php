@@ -12,25 +12,6 @@ class StocksTableSeeder extends Seeder
     public function run()
     {
 
-        DB::table('users')->insert([
-            'name' => 'Chandani Agarwal',
-            'email' => 'chandani@bloggercasts.com',
-            'password' => bcrypt('SYCN22sycn'),
-        ]);
-
-        DB::table('users')->insert([
-            'name' => 'Surender Agarwal',
-            'email' => 'surender@bloggercasts.com',
-            'password' => bcrypt('SYCN22sycn'),
-        ]);
-
-        DB::table('users')->insert([
-            'name' => 'Yogini Agarwal',
-            'email' => 'yogini@bloggercasts.com',
-            'password' => bcrypt('SYCN22sycn'),
-        ]);
-
-
         DB::table('stocks')->insert([
             'name' => 'Cigniti'
         ]);
@@ -44,7 +25,7 @@ class StocksTableSeeder extends Seeder
         ]);
 
         DB::table('stocks')->insert([
-            'name' => 'Mangl Crdt'
+            'name' => 'Mangal Credit'
         ]);
 
         DB::table('stocks')->insert([
