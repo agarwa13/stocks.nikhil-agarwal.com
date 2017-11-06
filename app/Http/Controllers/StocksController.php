@@ -3,10 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Stock;
+use App\Transaction;
 use Illuminate\Http\Request;
 
 class StocksController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -35,6 +42,11 @@ class StocksController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'name' => 'required|unique:stocks|max:180|alpha_dash',
+        ]);
+
         $stock = new Stock();
         $stock->name = $request->name;
         $stock->save();
@@ -84,7 +96,12 @@ class StocksController extends Controller
      */
     public function destroy($id)
     {
-        $stock = Stock::destroy($id);
+        if ( Transaction::where('stock_id','=',$id)->exists() ){
+            // TODO: Tell the User to Delete the Transactions first
+        }else{
+            Stock::destroy($id);
+        }
+
         return back();
     }
 }
