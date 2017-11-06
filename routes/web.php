@@ -21,4 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('users','UsersController');
 Route::resource('stocks','StocksController');
+Route::resource('transactions','TransactionsController');
 Route::post('/users/{id}/transactions','UsersController@addTransaction');
