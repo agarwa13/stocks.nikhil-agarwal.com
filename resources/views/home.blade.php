@@ -19,16 +19,15 @@
     {{--</div>--}}
 {{--</div>--}}
 
-
-<div class="container">
+@foreach($users as $user)
+<div class="container" style="margin-bottom: 20px;">
     <div class="row">
-        @foreach($users as $user)
-            <div class="col-md-4">
-                <a href="/users/{{$user->id}}" class="btn btn-{{$user->color}} btn-lg btn-block" role="button">{{$user->name}}</a>
-            </div>
-        @endforeach
+        <div class="col-md-4">
+            <a style="padding-top: 20px; padding-bottom: 20px;" href="/users/{{$user->id}}" class="btn btn-{{$user->color}} btn-lg btn-block" role="button">{{$user->name}}</a>
+        </div>
     </div>
 </div>
+@endforeach
 
 
 
