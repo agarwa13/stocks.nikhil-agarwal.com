@@ -22,8 +22,8 @@
                         <tr>
                             <td>Stock</td>
                             <td>Shares Owned</td>
-                            <td>Total Bought</td>
-                            <td>Total Sold</td>
+                            {{--<td>Total Bought</td>--}}
+                            {{--<td>Total Sold</td>--}}
                         </tr>
                         </thead>
 
@@ -32,8 +32,8 @@
                             <tr>
                                 <td>{{$portfolioItem->name}}</td>
                                 <td>{{$portfolioItem->totalBought - $portfolioItem->totalSold}}</td>
-                                <td>{{$portfolioItem->totalBought}}</td>
-                                <td>{{$portfolioItem->totalSold}}</td>
+                                {{--<td>{{$portfolioItem->totalBought}}</td>--}}
+                                {{--<td>{{$portfolioItem->totalSold}}</td>--}}
                             </tr>
                         @endforeach
                         </tbody>

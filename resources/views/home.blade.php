@@ -23,7 +23,7 @@
 <div class="container" style="margin-bottom: 20px;">
     <div class="row">
         <div class="col-md-4">
-            <a style="padding-top: 20px; padding-bottom: 20px;" href="/users/{{$user->id}}" class="btn btn-{{$user->color}} btn-lg btn-block" role="button">{{$user->name}}</a>
+            <a style="padding-top: 30px; padding-bottom: 30px;" href="/users/{{$user->id}}" class="btn btn-{{$user->color}} btn-lg btn-block" role="button">{{$user->name}}</a>
         </div>
     </div>
 </div>
