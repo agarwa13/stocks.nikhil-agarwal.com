@@ -46,7 +46,7 @@ class StocksController extends Controller
     {
 
         $request->validate([
-            'name' => 'required|unique:stocks|max:180|alpha_dash',
+            'name' => 'required|unique:stocks|max:180|string',
         ]);
 
         $stock = new Stock();
