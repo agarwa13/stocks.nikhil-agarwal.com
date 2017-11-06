@@ -108,6 +108,7 @@
                                     <td>Stock</td>
                                     <td>Bought</td>
                                     <td>Sold</td>
+                                    <td>Delete</td>
                                 </tr>
                             </thead>
 
@@ -118,6 +119,13 @@
                                         <td>{{$transaction->stock->name}}</td>
                                         <td>{{$transaction->bought}}</td>
                                         <td>{{$transaction->sold}}</td>
+                                        <td>
+                                            <form method="post" action="/transactions/{{$transaction->id}}">
+                                                {{ method_field('delete') }}
+                                                {{ csrf_field() }}
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
