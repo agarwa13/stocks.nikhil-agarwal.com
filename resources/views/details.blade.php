@@ -5,52 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">{{$user->name}}'s Current Portfolio</div>
-
-                    <div class="panel-body">
-                        @if (session('status'))
-                            <div class="alert alert-success">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-                    </div>
-
-
-                    <table class="table table-bordered">
-                        <thead>
-                        <tr>
-                            <td>Stock</td>
-                            <td>Shares Owned</td>
-                            {{--<td>Total Bought</td>--}}
-                            {{--<td>Total Sold</td>--}}
-                        </tr>
-                        </thead>
-
-                        <tbody>
-                        @foreach($portfolio as $portfolioItem)
-                            <tr>
-                                <td>{{$portfolioItem->name}}</td>
-                                <td>{{$portfolioItem->totalBought - $portfolioItem->totalSold}}</td>
-                                {{--<td>{{$portfolioItem->totalBought}}</td>--}}
-                                {{--<td>{{$portfolioItem->totalSold}}</td>--}}
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
+                <div class="panel panel-primary">
                     <div class="panel-heading">Add Transaction</div>
 
                     <div class="panel-body">
@@ -97,10 +52,59 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Transactions</div>
+                <div class="panel panel-success">
+                    <div class="panel-heading">{{$user->name}}'s Current Portfolio</div>
 
                     <div class="panel-body">
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                    </div>
+
+
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <td>Stock</td>
+                            <td>Shares Owned</td>
+                            {{--<td>Total Bought</td>--}}
+                            {{--<td>Total Sold</td>--}}
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        @foreach($portfolio as $portfolioItem)
+                            <tr>
+                                <td>{{$portfolioItem->name}}</td>
+                                <td>{{$portfolioItem->totalBought - $portfolioItem->totalSold}}</td>
+                                {{--<td>{{$portfolioItem->totalBought}}</td>--}}
+                                {{--<td>{{$portfolioItem->totalSold}}</td>--}}
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a data-toggle="collapse" href="#edit-transactions" aria-expanded="false" aria-controls="edit-transactions">
+                            Edit Transactions
+                        </a>
+                    </div>
+
+                    <div class="panel-body collapse" id="edit-transactions">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -142,11 +146,13 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Add Stock</div>
+                    <div class="panel-heading">
+                        <a data-toggle="collapse" href="#add-new-stock" aria-expanded="false" aria-controls="add-new-stock">
+                            Add New Stock
+                        </a>
+                    </div>
 
-                    <div class="panel-body">
-
-
+                    <div class="panel-body collapse" id="add-new-stock">
                         <form method="post" action="/stocks">
                             {{ csrf_field() }}
 
